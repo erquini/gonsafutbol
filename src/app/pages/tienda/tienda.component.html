@@ -1,0 +1,29 @@
+<div class="container mt-4">
+    <h2 class="text-center text-primary fw-bold">Nuestra Colección de Camisetas Retro</h2>
+  
+    <!-- Filtros -->
+    <div class="row mt-3 mb-4">
+      <div class="col-md-4">
+        <input [(ngModel)]="filtroEquipo" class="form-control" placeholder="Buscar por equipo">
+      </div>
+      <div class="col-md-4">
+        <input [(ngModel)]="filtroTemporada" class="form-control" placeholder="Buscar por temporada">
+      </div>
+    </div>
+  
+    <!-- Lista de Productos -->
+    <div class="row mt-4">
+      <div *ngFor="let producto of productosFiltrados()" class="col-md-4">
+        <div class="card shadow-sm">
+          <img [src]="producto.imagen" class="card-img-top" [alt]="producto.nombre">
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ producto.nombre }}</h5>
+            <p class="text-muted">{{ producto.equipo }} - {{ producto.temporada }}</p>
+            <p class="fw-bold text-success">{{ producto.precio | currency:'EUR' }}</p>
+            <a [routerLink]="['/producto', producto.id]" class="btn btn-primary">Ver Detalles</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
