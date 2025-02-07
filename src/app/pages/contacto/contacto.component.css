@@ -1,23 +1,23 @@
-h2 {
-    font-weight: bold;
-  }
-  
-  p.lead {
-    font-size: 1.3rem;
-  }
-  
-  img {
-    border-radius: 15px;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  form {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
-  button {
-    font-size: 1.2rem;
-  }
-  
+.container {
+  max-width: 800px;
+}
+
+.bg-light {
+  background-color: #f8f9fa;
+}
+
+.form-control {
+  border-radius: 10px;
+}
+
+.alert-danger {
+  font-weight: bold;
+}
+
+button {
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.05);
+}

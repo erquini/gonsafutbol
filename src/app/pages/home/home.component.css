@@ -1,20 +1,107 @@
-h1 {
-    font-weight: bold;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+/* ✅ Fondo del Banner con Logo */
+.banner-container {
+  background: url('/assets/images/logo.png') no-repeat center center;
+  background-size: cover;
+  padding: 100px 20px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+/* ✅ Caja de contenido con fondo semi-transparente */
+.banner-content {
+  max-width: 800px;
+  background: rgba(0, 0, 0, 0.6); /* Oscurece el fondo */
+  padding: 50px;
+  border-radius: 10px;
+  color: white;
+}
+
+/* ✅ Estilo para mejorar la visibilidad del texto */
+.shadow-text {
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* ✅ Animación de Fade-in */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  p.lead {
-    font-size: 1.5rem;
-    font-style: italic;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  img {
-    border-radius: 15px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* ✅ Animación de Deslizamiento */
+.animate-slide {
+  animation: slideIn 1s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
   }
-  
-  .btn {
-    font-size: 1.2rem;
-    padding: 10px 20px;
+  to {
+    transform: translateX(0);
   }
-  
+}
+
+/* ✅ Animación de Rebote en el Botón */
+.animate-bounce {
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+/* ✅ Animación de Parpadeo en los Botones */
+.animate-pulse {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ✅ Animación de Fade para Productos */
+.animate-fade {
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+/* ✅ Estilo de Testimonios */
+.testimonial {
+  background-color: #f8f9fa;
+  border-left: 5px solid #007bff;
+  text-align: center;
+}
+
+.testimonial h5 {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #007bff;
+}

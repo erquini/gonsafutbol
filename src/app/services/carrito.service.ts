@@ -8,28 +8,31 @@ export class CarritoService {
   private carrito: Producto[] = [];
 
   constructor() {
+    // ✅ Recuperar carrito almacenado en `localStorage`
     const carritoGuardado = localStorage.getItem('carrito');
-    this.carrito = carritoGuardado ? JSON.parse(carritoGuardado) : [];
+    if (carritoGuardado) {
+      this.carrito = JSON.parse(carritoGuardado);
+    }
   }
 
-  private guardarEnLocalStorage() {
-    localStorage.setItem('carrito', JSON.stringify(this.carrito));
-  }
-
-  agregarProducto(producto: Producto) {
-    this.carrito.push(producto);
-    this.guardarEnLocalStorage();
-  }
-
+  /** ✅ Obtener todos los productos del carrito */
   getCarrito(): Producto[] {
     return this.carrito;
   }
 
-  eliminarProducto(index: number) {
-    this.carrito.splice(index, 1);
-    this.guardarEnLocalStorage();
+  /** ✅ Agregar producto al carrito y guardar en localStorage */
+  agregarProducto(producto: Producto) {
+    this.carrito.push(producto);
+    localStorage.setItem('carrito', JSON.stringify(this.carrito));
   }
 
+  /** ✅ Eliminar un producto del carrito por su índice */
+  eliminarProducto(index: number) {
+    this.carrito.splice(index, 1);
+    localStorage.setItem('carrito', JSON.stringify(this.carrito));
+  }
+
+  /** ✅ Vaciar el carrito y eliminarlo de localStorage */
   vaciarCarrito() {
     this.carrito = [];
     localStorage.removeItem('carrito');

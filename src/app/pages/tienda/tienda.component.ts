@@ -10,19 +10,24 @@ import { Producto } from '../../interfaces/producto';
 })
 export class TiendaComponent {
   productos: Producto[] = [];
+  productosFiltrados: Producto[] = [];
+
   filtroEquipo: string = '';
   filtroTemporada: string = '';
+  filtroPrecio: number = 100;  // Precio máximo inicial
 
   constructor(private productoService: ProductoService) {}
 
   ngOnInit() {
     this.productos = this.productoService.getProductos();
+    this.productosFiltrados = this.productos;
   }
 
-  productosFiltrados(): Producto[] {
-    return this.productos.filter(producto => 
+  aplicarFiltros() {
+    this.productosFiltrados = this.productos.filter(producto =>
       producto.equipo.toLowerCase().includes(this.filtroEquipo.toLowerCase()) &&
-      producto.temporada.includes(this.filtroTemporada)
+      producto.temporada.includes(this.filtroTemporada) &&
+      producto.precio <= this.filtroPrecio
     );
   }
 }

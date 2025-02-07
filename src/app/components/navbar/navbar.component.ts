@@ -1,9 +1,26 @@
 import { Component } from '@angular/core';
+import { UsuarioService } from '../../services/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
-  standalone: false
+  standalone: false,
+  styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {}
+export class NavbarComponent {
+  usuarioLogueado: string | null = null;
+
+  constructor(private usuarioService: UsuarioService, private router: Router) {}
+
+  ngOnInit() {
+    // ✅ Recuperar el usuario al iniciar el navbar
+    this.usuarioLogueado = this.usuarioService.obtenerUsuarioActual();
+  }
+
+  cerrarSesion() {
+    this.usuarioService.cerrarSesion();
+    this.usuarioLogueado = null;
+    this.router.navigate(['/home']);
+  }
+}
