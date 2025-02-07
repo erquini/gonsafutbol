@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  standalone: false,  // ✅ Asegura que no sea standalone
+  standalone: false,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {

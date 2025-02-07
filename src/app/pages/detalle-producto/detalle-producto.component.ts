@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductoService } from '../../services/producto.service';
 import { Producto } from '../../interfaces/producto';
+import { CarritoService } from '../../services/carrito.service';  // ✅ Importamos el servicio del carrito
 
 @Component({
   selector: 'app-detalle-producto',
@@ -15,17 +16,20 @@ export class DetalleProductoComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private productoService: ProductoService
+    private productoService: ProductoService,
+    private carritoService: CarritoService  
   ) {}
 
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.producto = this.productoService.getProductos().find(p => p.id === id);
+    this.producto = this.productoService.getProductoById(id);
   }
 
   agregarAlCarrito() {
-    alert(`✅ ${this.producto?.nombre} añadido al carrito.`);
-    // Aquí se podría integrar un servicio de carrito para almacenar los productos
+    if (this.producto) {
+      this.carritoService.agregarProducto(this.producto);
+      alert(`✅ ${this.producto.nombre} añadida al carrito.`);
+    }
   }
 
   volver() {

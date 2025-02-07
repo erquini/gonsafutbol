@@ -1,1 +1,21 @@
-<p>carrito works!</p>
+<div class="container mt-4 text-center">
+    <h2 class="text-primary fw-bold">🛍️ Tu Carrito</h2>
+  
+    <div *ngIf="carrito.length > 0">
+      <table class="table mt-3">
+        <tr *ngFor="let producto of carrito; let i = index">
+          <td><img [src]="producto.imagen" width="80"></td>
+          <td>{{ producto.nombre }}</td>
+          <td class="text-success fw-bold">{{ producto.precio | currency:'EUR' }}</td>
+          <td><button class="btn btn-danger" (click)="eliminarProducto(i)">🗑️</button></td>
+        </tr>
+      </table>
+ 
+      <button class="btn btn-warning mt-3" (click)="vaciarCarrito()">🧹 Vaciar Carrito</button>
+
+      <button class="btn btn-success mt-3 ms-3" [routerLink]="['/pago']">💳 Proceder al Pago</button>
+    </div>
+  
+    <p *ngIf="carrito.length === 0" class="text-muted">Tu carrito está vacío.</p>
+  </div>
+  
