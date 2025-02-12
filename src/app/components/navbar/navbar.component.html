@@ -1,33 +1,28 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
   <div class="container">
-    <!-- Logo -->
     <a class="navbar-brand" routerLink="/home">
       <img src="assets/images/logo.png" alt="Logo" height="40">
     </a>
 
-    <!-- Botón de menú responsive -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-      <!-- Menú principal -->
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" routerLink="/home">🏠 Inicio</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/tienda">🛒 Tienda</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/futbol">⚽ Ligas</a></li> <!-- ✅ Nueva sección -->
+        <li class="nav-item"><a class="nav-link" routerLink="/futbol">⚽ Ligas</a></li> 
         <li class="nav-item"><a class="nav-link" routerLink="/contacto">📞 Contacto</a></li>
         <li class="nav-item"><a class="nav-link btn btn-outline-light" routerLink="/carrito">🛍️ Carrito</a></li>
       </ul>
 
-      <!-- Autenticación: Si el usuario está logueado, mostrar su nombre y cerrar sesión -->
       <ul class="navbar-nav ms-3">
         <li *ngIf="usuarioLogueado" class="nav-item d-flex align-items-center">
           <span class="text-light fw-bold me-3">👋 Hola, {{ usuarioLogueado }}</span>
           <button class="btn btn-danger btn-sm" (click)="cerrarSesion()">🚪 Cerrar Sesión</button>
         </li>
 
-        <!-- Si el usuario NO está logueado, mostrar botones de Login y Registro -->
         <li *ngIf="!usuarioLogueado" class="nav-item">
           <a class="btn btn-outline-light me-2" routerLink="/login">🔑 Iniciar Sesión</a>
         </li>

@@ -8,27 +8,22 @@ export class UsuarioService {
   private usuarioActual: string | null = null;
 
   constructor() {
-    // ✅ Recuperar usuarios almacenados en localStorage
     const usuariosGuardados = localStorage.getItem('usuarios');
     if (usuariosGuardados) {
       this.usuarios = JSON.parse(usuariosGuardados);
     }
 
-    // ✅ Recuperar usuario actual si hay sesión activa
     this.usuarioActual = localStorage.getItem('usuario');
   }
 
   registrarUsuario(nombre: string, email: string, password: string): boolean {
-    // ✅ Verificar si el email ya está registrado
     const existe = this.usuarios.find(u => u.email === email);
     if (existe) {
       return false;
     }
 
-    // ✅ Guardar nuevo usuario en la lista
     this.usuarios.push({ nombre, email, password });
 
-    // ✅ Almacenar la lista de usuarios en `localStorage`
     localStorage.setItem('usuarios', JSON.stringify(this.usuarios));
 
     return true;
@@ -39,7 +34,6 @@ export class UsuarioService {
     if (usuario) {
       this.usuarioActual = usuario.nombre;
 
-      // ✅ Guardar usuario actual en `localStorage`
       localStorage.setItem('usuario', usuario.nombre);
 
       return true;
@@ -49,7 +43,7 @@ export class UsuarioService {
 
   cerrarSesion() {
     this.usuarioActual = null;
-    localStorage.removeItem('usuario');  // ✅ Borrar usuario actual
+    localStorage.removeItem('usuario'); 
   }
 
   obtenerUsuarioActual(): string | null {

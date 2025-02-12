@@ -11,7 +11,7 @@ export class ProductoService {
       nombre: 'Camiseta de Maldini 2006/2007',
       equipo: 'AC Milan',
       temporada: '2006/07',
-      imagen: 'assets/images/camiesta-maldini.jpg', // Mantenemos el nombre original
+      imagen: 'assets/images/camiesta-maldini.jpg', 
       precio: 59.99,
       descripcion: 'Camiseta icónica de Maldini en la temporada 2006/07.'
     },
@@ -20,7 +20,7 @@ export class ProductoService {
       nombre: 'Camiseta de Maradona 1986',
       equipo: 'Argentina',
       temporada: '1986',
-      imagen: 'assets/images/camiseta_maradadona_futbol.jpg', // Mantenemos el nombre original
+      imagen: 'assets/images/camiseta_maradadona_futbol.jpg',
       precio: 69.99,
       descripcion: 'Camiseta legendaria de Maradona en el Mundial de 1986.'
     },

@@ -1,7 +1,6 @@
 <div class="container mt-5 fade-in">
   <h1 class="text-center text-primary fw-bold animate-slide">🛒 Nuestra Colección Retro</h1>
 
-  <!-- Filtros -->
   <div class="row mt-4 p-3 bg-light rounded shadow">
     <h5 class="text-center text-success fw-bold">🎯 Filtrar Productos</h5>
 
@@ -20,8 +19,6 @@
       <input [(ngModel)]="filtroPrecio" (input)="aplicarFiltros()" type="range" min="10" max="200" step="10" class="form-range">
     </div>
   </div>
-
-  <!-- Lista de Productos -->
   <div class="row mt-4">
     <div *ngFor="let producto of productosFiltrados" class="col-md-4">
       <div class="card shadow animate-fade">
@@ -36,7 +33,6 @@
     </div>
   </div>
 
-  <!-- Mensaje cuando no hay productos filtrados -->
   <div *ngIf="productosFiltrados.length === 0" class="text-center mt-4">
     <h4 class="text-danger">❌ No se encontraron camisetas con esos filtros.</h4>
   </div>

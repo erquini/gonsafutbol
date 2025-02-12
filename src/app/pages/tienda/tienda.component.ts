@@ -14,7 +14,7 @@ export class TiendaComponent {
 
   filtroEquipo: string = '';
   filtroTemporada: string = '';
-  filtroPrecio: number = 100;  // Precio máximo inicial
+  filtroPrecio: number = 100; 
 
   constructor(private productoService: ProductoService) {}
 

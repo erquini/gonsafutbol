@@ -32,7 +32,6 @@ export class ContactoComponent {
       return;
     }
 
-    // ✅ Redirigir a la página de confirmación
     this.router.navigate(['/contacto-confirmacion']);
   }
 
@@ -42,7 +41,7 @@ export class ContactoComponent {
   }
 
   validarTelefono(telefono: string): boolean {
-    const re = /^[0-9]{9,15}$/; // Solo números, mínimo 9 y máximo 15 dígitos
+    const re = /^[0-9]{9,15}$/; 
     return re.test(telefono);
   }
 }

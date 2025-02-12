@@ -14,7 +14,6 @@ export class NavbarComponent {
   constructor(private usuarioService: UsuarioService, private router: Router) {}
 
   ngOnInit() {
-    // ✅ Recuperar el usuario al iniciar el navbar
     this.usuarioLogueado = this.usuarioService.obtenerUsuarioActual();
   }
 

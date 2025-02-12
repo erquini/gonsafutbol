@@ -26,13 +26,11 @@ export class CarritoService {
     localStorage.setItem('carrito', JSON.stringify(this.carrito));
   }
 
-  /** ✅ Eliminar un producto del carrito por su índice */
   eliminarProducto(index: number) {
     this.carrito.splice(index, 1);
     localStorage.setItem('carrito', JSON.stringify(this.carrito));
   }
 
-  /** ✅ Vaciar el carrito y eliminarlo de localStorage */
   vaciarCarrito() {
     this.carrito = [];
     localStorage.removeItem('carrito');

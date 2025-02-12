@@ -10,7 +10,7 @@ import { ConfirmacionComponent } from './pages/confirmacion/confirmacion.compone
 import { RegistroComponent } from './pages/registro/registro.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ContactoConfirmacionComponent } from './pages/contacto-confirmacion/contacto-confirmacion.component';
-import { FutbolComponent } from './pages/futbol/futbol.component'; // ✅ Nueva página
+import { FutbolComponent } from './pages/futbol/futbol.component';
 
 const routes: Routes = [
   { path: 'confirmacion', component: ConfirmacionComponent },
@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'login', component: LoginComponent },
   { path: 'contacto-confirmacion', component: ContactoConfirmacionComponent },
-  { path: 'futbol', component: FutbolComponent } // ✅ Nueva ruta añadida
+  { path: 'futbol', component: FutbolComponent }
 ];
 
 @NgModule({
